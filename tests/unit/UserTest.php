@@ -15,7 +15,6 @@ class UserTest extends \Codeception\TestCase\Test
         $password = Hash::make('password');
 
         User::register(['email' => $email, 'password' => $password]);
-
         $this->tester->seeRecord('users', ['email' => $email, 'password' => $password]);
     }
 
