@@ -15,7 +15,7 @@ jobs:
       # Using the RAM variation mitigates I/O contention
       # for database intensive operations.
       # - image: circleci/mysql:5.7-ram
-      # 
+      #
       # - image: redis:3
 
     steps:
@@ -67,3 +67,9 @@ jobs:
           path: tests/_output
       - store_artifacts:
           path: tests/_output
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - docker
+      - steps
