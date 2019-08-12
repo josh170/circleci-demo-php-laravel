@@ -67,9 +67,16 @@ jobs:
           path: tests/_output
       - store_artifacts:
           path: tests/_output
+  test:
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:7.3-stretch-node-browsers
+    steps:
+        - checkout # check out the code in the project directory
+        - run: echo "hello world" # run the `echo` command
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - docker
+      - build
       - steps
